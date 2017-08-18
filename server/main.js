@@ -107,7 +107,6 @@ Meteor.publish('tabular_getInfo', function (tableName, selector, sort, skip, lim
   // `sort` may be `null`
   if (_.isArray(sort)) {
     findOptions.sort = sort;
-    console.log('Final sort:', sort);
   }
 
   const filteredCursor = table.collection.find(selector, findOptions);
