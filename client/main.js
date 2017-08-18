@@ -420,6 +420,9 @@ Template.tabular.onRendered(function () {
       return template.tabular.sort.get();
     });
     if (sort) {
+      if (typeof template.tabular.tableDef.changeSort === 'function') {
+        sort = template.tabular.tableDef.changeSort(sort, Meteor.userId());
+      }
       findOptions.sort = sort;
     }
 
