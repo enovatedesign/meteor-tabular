@@ -78,7 +78,7 @@ Meteor.publish('tabular_getInfo', function (tableName, selector, sort, skip, lim
 
   // Allow the user to modify the sort before we use it
   if (typeof table.changeSort === 'function') {
-      sort = table.changeSort(sort, this.userId);
+    sort = table.changeSort(sort, this.userId);
   }
 
   // Apply the server side selector specified in the tabular
