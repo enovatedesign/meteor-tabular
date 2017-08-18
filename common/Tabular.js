@@ -29,6 +29,7 @@ Tabular.Table = class {
     this.allow = options.allow;
     this.allowFields = options.allowFields;
     this.changeSelector = options.changeSelector;
+    this.changeSort = options.changeSort;
     this.throttleRefresh = options.throttleRefresh;
     this.alternativeCount = options.alternativeCount;
     this.skipCount = options.skipCount;
@@ -52,6 +53,7 @@ Tabular.Table = class {
       'allow',
       'allowFields',
       'changeSelector',
+      'changeSort',
       'throttleRefresh',
       'extraFields',
       'alternativeCount',

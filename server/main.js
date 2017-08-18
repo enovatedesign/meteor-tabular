@@ -76,6 +76,11 @@ Meteor.publish('tabular_getInfo', function (tableName, selector, sort, skip, lim
     selector = table.changeSelector(selector, this.userId);
   }
 
+  // Allow the user to modify the sort before we use it
+  if (typeof table.changeSort === 'function') {
+      sort = table.changeSort(sort, this.userId);
+  }
+
   // Apply the server side selector specified in the tabular
   // table constructor. Both must be met, so we join
   // them using $and, allowing both selectors to have
@@ -102,6 +107,7 @@ Meteor.publish('tabular_getInfo', function (tableName, selector, sort, skip, lim
   // `sort` may be `null`
   if (_.isArray(sort)) {
     findOptions.sort = sort;
+    console.log('Final sort:', sort);
   }
 
   const filteredCursor = table.collection.find(selector, findOptions);
